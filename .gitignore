@@ -1,0 +1,8 @@
+docker_root/
+zen-cart-v*
+/config/grunt-config.js
+/tmp/
+/api-data/
+/node_modules/
+.idea/*
+/config/grunt-config.json

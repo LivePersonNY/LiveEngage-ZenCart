@@ -1,0 +1,30 @@
+nginx:
+  image: nginx:alpine
+  links:
+    - phpfpm
+    - db
+  volumes:
+    - ./config:/etc/nginx/conf.d:ro
+    - ./docker_root:/app:rw
+  ports:
+    - 80:80
+phpfpm:
+  image: bitnami/php-fpm
+  links:
+    - db
+  volumes:
+    - ./docker_root:/app:rw
+
+db:
+  image: mariadb
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=zencart
+  volumes:
+    - /var/lib/mysql
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin:latest
+  ports:
+    - "8080:80"
+  links:
+    - db:db

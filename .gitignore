@@ -6,3 +6,4 @@ zen-cart-v*
 /node_modules/
 .idea/*
 /config/grunt-config.json
+.DS_Store/

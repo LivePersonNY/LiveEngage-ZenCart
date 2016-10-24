@@ -128,11 +128,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', 'Build the download package', function() {
         //populate readme with current file paths
-        var doc = grunt.file.read('docs/readme.tpl');
+        var doc = grunt.file.read('docs/README.tpl');
         var paths = return_working_paths(false);
         console.log(paths);
         doc = grunt.template.process(doc, {data: {FILES: paths}});
-        grunt.file.write('docs/readme.txt', doc);
+        grunt.file.write('docs/README.TXT', doc);
         //compress src and docs into zip
         grunt.task.run(['compress:build']);
         grunt.log.ok("ZenCart package built");
